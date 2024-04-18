@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the archives</title>
+    <link rel="shortcut icon" href="ministry-logo.ico" type="image/x-icon">
+    <style>
+      body {
+    background-color: rgb(218, 218, 218);
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 40px;
+    display: inline;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px rgb(144, 144, 144);
+}
+
+.horizontal-line {
+    width: 100%;
+    height: 10px;
+    border-top: black solid 2px;
+    margin-top: 10px;
+}
+
+.bolded {
+    font-weight: bold;
+    font-size: 60px;
+
+}
+
+.big-grid {
+    display: inline-grid;
+    background-color: pink;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: repeat(5, 100px);
+    gap: 2.5px;
+    justify-content: center;
+    border: black 5px solid;
+    background-color: black;
+    margin-top: 40px;
+}
+
+.box {
+    background-color: white;
+
+}
+
+.grid-image {
+    object-fit: cover;
+    max-width: 100%;
+    position: relative;
+}
+
+.overlay {
+    position: relative;
+    opacity: 0%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.500);
+    top: -104%;
+    height: 100px;
+    width: 100px;
+    transition: 0.2s;
+    pointer-events: auto;
+    display: table;
+    height: 100%;
+    width: 100%;
+
+}
+
+.overlay:hover {
+    opacity: 100%;
+    transition: 0.2s;
+}
+
+.inside-overlay-text {
+    margin: 0;
+    color: white;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+.left-img {
+    position: absolute;
+    left: 0;
+    width: 150px;
+}
+
+.right-img {
+    position: absolute;
+    right: 0;
+    width: 150px;
+
+}
+
+.small-text {
+    font-size: 20px;
+}
+    </style>
+</head>
+
+<body>
+    <!-- format HEAVILY inspired by https://www.7xwords.com/ -->
+    <h1><span class="bolded">T</span>he <span class="bolded">h</span>ehe</h1>
+    <div class="horizontal-line"></div>
+    <center>
+        <div class="big-grid">
+            <div class="box">
+                <a href="https://theburlingameb.github.io/crosswords/sssss.html" target="_blank">
+                    <img src="grids/grid1.png" alt="Grid 1" class="grid-image">
+                    <div class="overlay">
+                        <p class="inside-overlay-text">sssss</p>
+                    </div>
+                </a>
+            </div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </center>
+</body>
+
+</html>
