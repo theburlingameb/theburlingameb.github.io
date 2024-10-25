@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link rel="stylesheet" type="text/css" href="https://viresh-ratnakar.github.io/exolve-m.css?v1.58"/>
-<script src="https://viresh-ratnakar.github.io/exolve-m.js?v1.58"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" type="text/css" href="https://theburlingameb.github.io/exsolve-code/exsolve.css"/>
 </head>
-<body>
-<script>
+  <div id="exolve"></div>
+  <script src="https://theburlingameb.github.io/exsolve-code/exsolve.js"></script>
+  <script>
 createExolve(`
     exolve-begin
       exolve-width: 15
       exolve-height: 15
     exolve-maker:
-      Converted by exolve-from-ipuz.js from Cross-word.ipuz
       exolve-title: Cross-word
       exolve-setter: Alex Bertelli, Rain Yang
-      exolve-copyright: © 2024
+      exolve-copyright:
       exolve-grid:
         BETA|AL_RIGH_T|EASY
         FRI|BLOODLOSS|TIE
@@ -127,6 +126,7 @@ createExolve(`
           76 Carrier of genetic information
           77 Party musicians
           79 Wager
+          
     exolve-end`);
 </script>
 </body>
