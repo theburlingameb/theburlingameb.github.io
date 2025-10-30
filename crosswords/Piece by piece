@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" type="text/css" href="https://theburlingameb.github.io/exsolve-code/exsolve.css"/>
+</head>
+  <div id="exolve"></div>
+  <script src="https://theburlingameb.github.io/exsolve-code/exsolve.js"></script>
+  <script>
+createExolve(`
+  exolve-begin
+  exolve-width: 15
+  exolve-height: 15
+  exolve-title: frnaksdnfiusaf
+  exolve-setter: 
+  exolve-copyright: 
+  exolve-option: ignore-enum-mismatch
+  exolve-maker:
+    Converted by exolve-from-puz.js from frnaksdnfiusaf.puz
+  exolve-grid:
+    SIDE.SNOW..MARY
+    POOL.HIVES.ALOE
+    EDGE.ICECASTLES
+    DISCOVERABLE...
+    UNITS..ARIA.DAB
+    PET.CONCENTRATE
+    ...TAROT...ERIE
+    CODERED.TALENTS
+    AURA...TEPID...
+    PROTESTANTS.SAT
+    ESP.UPON..TITLE
+    ...FRANKENSTEIN
+    MARIONETTE.EVEN
+    AMEN.KRONA.MINI
+    RAIN..SPAR.SASS
+
+  exolve-across:
+    1 1 of 12 in a dodecagon
+    5 63-Across when it gets really cold
+    9 Bloody ___ (scary!)
+    13 Enough 63-Across can form one
+    14 What you might after a bad encounter with 26-Down, if you're allergic (scary!)
+    16 ___ vera
+    17 Advantage
+    18 Palaces that may only last so long
+    20 CD above can?*
+    22 Like moles and yards
+    23 Solo in an opera
+    24 Smidgen
+    27 Like the thing you take care of if you 3-Down
+    28 Negative penny speed?*
+    32 Deck that includes Death and The Hanged Man (scary?)
+    33 Shallowest Great Lake
+    34 Emergency situation (scary!)
+    37 Gifts
+    40 What you might "lose" if you do something embarrassing
+    41 Lukewarm
+    42 Positive exam critters?*
+    46 High school assessment with four modules (scary?)
+    49 Sixth sense, for short
+    50 Once ___ a time
+    51 Name
+    53 Fictional doctor that split the starred clues into three smaller clues and pieced their answers back together? (scary!!!)
+    56 Strung puppet (scary?)
+    59 Not odd
+    60 Last word in a prayer
+    61 Swedish currency
+    62 Like a 5x5 crossword
+    63 It falls during storms and is, in my opinion, pretty cool
+    64 Go against, in fencing (scary?)
+    65 Back talk
+
+  exolve-down:
+    1 Played at 2x, say
+    2 Element common as a salt additive
+    3 Watch one's golden retriever, say
+    4 Choose
+    5 Handblade (scary?)
+    6 Friendly
+    7 Be too in character, perhaps
+    8 "You're important to us"
+    9 End result of many chess games
+    10 Every
+    11 Fish eggs
+    12 Not no
+    15 Polio vaccine developer
+    19 Thin strip of wood
+    21 ___ the Grouch (scary?)
+    24 "Unfortunate"
+    25 Working hard
+    26 They live in 14-Across (scary!)
+    29 Mineral deposit
+    30 Wordlessly agree
+    31 Saxophone mouthpiece
+    32 Source of milk
+    34 It's worn by Batman (scary?)
+    35 Belonging to all of us
+    36 Individual form of 63-Across
+    37 X
+    38 Fitting
+    39 See 52-Down
+    41 Sleeveless shirt
+    43 Closest unit of currency to the dollar
+    44 Hit as punishment (scary??)
+    45 Skin care products
+    46 Artificial sweetener
+    47 Visitors in a UFO (scary!)
+    48 Back-and-forth sport
+    52 Things on 39-Downs
+    53 Resident of Helsinki
+    54 Europe's largest volcano
+    55 Close
+    56 Injure (scary?)
+    57 Reddit interview format, for short
+    58 Hiking gear store
+
+  exolve-end`);
+</script>
+</body>
+</html>
