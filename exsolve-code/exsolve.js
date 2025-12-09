@@ -103,8 +103,8 @@ function Exolve(puzzleSpec,
   this.skew3d = `skewX(${this.angle3d - 90}deg)`;
   this.offset3d = 0;
   this.ratio3d = 0.75;
-  this.cellW = 0;
-  this.cellH = 0;
+  this.cellW = 36;
+  this.cellH = 36;
   this.squareDim = 0;
   this.topClueClearance = 0;
 
