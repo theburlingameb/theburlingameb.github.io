@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Puzzle / Answer Toggle</title>
+<style>
+  :root {
+    --bg: #faf8f5;
+    --card-bg: #ffffff;
+    --text: #2a2a2a;
+    --muted: #8a8a8a;
+    --accent: #3a5a40;
+    --accent-soft: #d9e4dc;
+    --border: #e6e2db;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1c1b19;
+      --card-bg: #26241f;
+      --text: #f0ede6;
+      --muted: #9a968c;
+      --accent: #8fb996;
+      --accent-soft: #3a4a3d;
+      --border: #3a372f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1c1b19;
+    --card-bg: #26241f;
+    --text: #f0ede6;
+    --muted: #9a968c;
+    --accent: #8fb996;
+    --accent-soft: #3a4a3d;
+    --border: #3a372f;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 20px 48px;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 24px;
+  }
+
+  /* --- Two column layout --- */
+  .columns {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+  }
+  @media (max-width: 640px) {
+    .columns {
+      flex-direction: column;
+    }
+  }
+
+  .col-side {
+    flex: 0 0 28%;
+    max-width: 28%;
+    display: flex;
+    flex-direction: column;
+  }
+  @media (max-width: 640px) {
+    .col-side {
+      flex: 1 1 auto;
+      max-width: 100%;
+    }
+  }
+
+  .side-label {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .col-main {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .side-link {
+    display: block;
+    width: 100%;
+    flex: 1 1 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .side-link:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+  }
+  .side-link img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* --- Slider toggle --- */
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    user-select: none;
+  }
+
+  .toggle-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.25s ease;
+  }
+  .toggle-label.active {
+    color: var(--accent);
+  }
+
+  .switch {
+    position: relative;
+    width: 64px;
+    height: 34px;
+    flex: none;
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider-track {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: background 0.25s ease;
+  }
+  .slider-track::before {
+    content: "";
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    left: 3px;
+    bottom: 3px;
+    background: var(--card-bg);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    transition: transform 0.25s ease;
+  }
+  input:checked + .slider-track {
+    background: var(--accent);
+  }
+  input:checked + .slider-track::before {
+    transform: translateX(30px);
+  }
+
+  /* --- Image area --- */
+  .image-frame {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+  }
+  .image-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1></h1>
+
+    <div class="toggle-row">
+      <label class="toggle-label active" id="labelPuzzle" for="modeToggle">Puzzles</label>
+      <label class="switch">
+        <input type="checkbox" id="modeToggle">
+        <span class="slider-track"></span>
+      </label>
+      <label class="toggle-label" id="labelAnswer" for="modeToggle">Answers</label>
+    </div>
+
+    <div class="columns">
+      <div class="col-side">
+        <div class="side-label">Click to play</div>
+        <!-- Swap href for wherever this should link to -->
+        <a class="side-link" href="#" target="_blank" rel="noopener noreferrer">
+          <img id="sideImage" src="" alt="More puzzles">
+        </a>
+      </div>
+
+      <div class="col-main">
+        <div class="image-frame">
+          <img id="displayImage" src="" alt="Puzzle image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Replace these two data URIs with your own image URLs, e.g.
+  // "https://example.com/puzzle.jpg" and "https://example.com/answer.jpg"
+  const PUZZLE_IMAGE = "crossword.png";
+  const ANSWER_IMAGE = "https://drive.google.com/file/d/1nBz5kNdsUXIReLcU9vEKK2n-8fW20Gzf/view?usp=drive_link";
+  const SIDE_PUZZLE_IMAGE = "otherpuzzles.png"
+  const SIDE_ANSWER_IMAGE = makePlaceholder("MORE\nANSWERS", "#70594a", "#f2ece4", 900, 1400);
+
+  function makePlaceholder(label, fg, bg, width = 1200, height = 800) {
+    const lines = label.split("\n");
+    const lineHeight = Math.round(width * 0.055);
+    const startY = height / 2 - ((lines.length - 1) * lineHeight) / 2;
+    const cols = Math.round(width / 120);
+    const rows = Math.round(height / 120);
+    const tspans = lines.map((line, i) =>
+      `<tspan x="50%" y="${startY + i * lineHeight}">${line}</tspan>`).join("");
+    const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
+        <rect width="100%" height="100%" fill="${bg}"/>
+        <g fill="none" stroke="${fg}" stroke-width="2" opacity="0.25">
+          ${Array.from({length: cols}).map((_, i) =>
+            `<line x1="${(i+1)*(width/cols)}" y1="0" x2="${(i+1)*(width/cols)}" y2="${height}"/>`).join("")}
+          ${Array.from({length: rows}).map((_, i) =>
+            `<line x1="0" y1="${(i+1)*(height/rows)}" x2="${width}" y2="${(i+1)*(height/rows)}"/>`).join("")}
+        </g>
+        <text font-family="Helvetica, Arial, sans-serif" font-size="${Math.round(width * 0.05)}"
+              fill="${fg}" text-anchor="middle" font-weight="700">
+          ${tspans}
+        </text>
+      </svg>`;
+    return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+  }
+
+  const img = document.getElementById("displayImage");
+  const sideImg = document.getElementById("sideImage");
+  const toggle = document.getElementById("modeToggle");
+  const labelPuzzle = document.getElementById("labelPuzzle");
+  const labelAnswer = document.getElementById("labelAnswer");
+
+  function render() {
+    const showAnswer = toggle.checked;
+    img.src = showAnswer ? ANSWER_IMAGE : PUZZLE_IMAGE;
+    img.alt = showAnswer ? "Answer image" : "Puzzle image";
+    sideImg.src = showAnswer ? SIDE_ANSWER_IMAGE : SIDE_PUZZLE_IMAGE;
+    sideImg.alt = showAnswer ? "More answers" : "More puzzles";
+    labelPuzzle.classList.toggle("active", !showAnswer);
+    labelAnswer.classList.toggle("active", showAnswer);
+  }
+
+  toggle.addEventListener("change", render);
+  labelPuzzle.addEventListener("click", () => { toggle.checked = false; render(); });
+  labelAnswer.addEventListener("click", () => { toggle.checked = true; render(); });
+
+  render();
+</script>
+</body>
+</html>
